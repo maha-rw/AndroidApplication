@@ -21,6 +21,10 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, DBNAME, null, 1);
     }
 
+    public static DBHelper getInstance() {
+        return null;
+    }
+
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1  ) {
         sqLiteDatabase.execSQL("drop Table if exists " + TABLE);
     }
