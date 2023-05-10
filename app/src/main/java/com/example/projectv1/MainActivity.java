@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText username, password, email;
-    Button signup, signin;
+    Button register, login;
 
     DBHelper DB;
     @Override
@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         username = findViewById(R.id.username1);
         password = findViewById(R.id.password1);
-        signup = findViewById(R.id.btnregister);
-        signin = findViewById(R.id.btnlogin);
+        register = findViewById(R.id.btnregister);
+        login = findViewById(R.id.btnlogin);
         email = findViewById(R.id.email1);
         DB = new DBHelper(this);
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = username.getText().toString();
@@ -37,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
                 else{
                     Boolean checkUser = DB.checkUsername(user);
-                    Boolean checkemail = DB.checkemail(uemail);
+                    Boolean checkEmail = DB.checkEmail(uemail);
+                    //  Boolean checkemail = DB.checkemail(uemail,user);
 
-                    if(!checkUser && !checkemail){
+                    if(!checkUser && !checkEmail){
                         Boolean insert = DB.insertData(user, pass, uemail);
                         if(insert){
                             Toast.makeText(MainActivity.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        signin.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
