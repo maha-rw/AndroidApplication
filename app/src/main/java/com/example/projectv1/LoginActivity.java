@@ -15,13 +15,13 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     DBHelper DB;
 
-    @SuppressLint("WrongViewCast")
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.username2);
-        password = findViewById(R.id.Password2);
+        password = findViewById(R.id.password2);
         login = findViewById(R.id.btnlogin2);
         DB = new DBHelper(this);
 
@@ -31,12 +31,16 @@ public class LoginActivity extends AppCompatActivity {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
-                if(user.equals("")||pass.equals(""))
-                    Toast.makeText(LoginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                if(user.equals(""))
+                {
+                    Toast.makeText(LoginActivity.this, "Please enter User name", Toast.LENGTH_SHORT).show();}
+                else if (pass.equals("")) {
+                    Toast.makeText(LoginActivity.this, "Please enter Password", Toast.LENGTH_SHORT).show();}
+
                 else{
                     Boolean check = DB.checkUsernamePassword(user, pass);
                     if (check){
-                        Toast.makeText(LoginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                         startActivity(intent);
                     } else {
