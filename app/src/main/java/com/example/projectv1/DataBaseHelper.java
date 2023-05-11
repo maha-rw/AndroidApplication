@@ -16,7 +16,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create Table ItemDetails(name TEXT primary key unique, contact TEXT, price TEXT, category TEXT )");
+        DB.execSQL("create Table ItemDetails(name TEXT primary key, contact TEXT, price TEXT, category TEXT )");
     }
 
     @Override
