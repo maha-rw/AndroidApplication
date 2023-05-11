@@ -1,11 +1,9 @@
 package com.example.projectv1;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Calendar;
-
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity1 extends AppCompatActivity {
 
     private DBHelper  firebaseAuth ; //lina
 
@@ -54,21 +50,21 @@ public class HomeActivity extends AppCompatActivity {
 
                 //EMPTY FIELD
                 if (nameTXT.equals("") || contactTXT.equals("") || priceTXT.equals("") || categoryTXT.equals("")) {
-                    Toast.makeText(HomeActivity.this, "ENTER ALL FIELDS", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "ENTER ALL FIELDS", Toast.LENGTH_LONG).show();
 
                 } else if (!(contactTXT.length() == 10)) {
-                    Toast.makeText(HomeActivity.this, "PHONE FIELD IS WRONG", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "PHONE FIELD IS WRONG", Toast.LENGTH_LONG).show();
 
                 } else if (!(categoryTXT.matches("^[a-zA-Z]+$"))) {
-                    Toast.makeText(HomeActivity.this, "CATEGORY FIELD IS WRONG", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "CATEGORY FIELD IS WRONG", Toast.LENGTH_LONG).show();
 
                 } else {
                     Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT);
 
                     if (checkinsertdata == true) {
-                        Toast.makeText(HomeActivity.this, "added", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HomeActivity1.this, "added", Toast.LENGTH_LONG).show();
                     } else { //FAILED FROM THE ACTUAL METHOD
-                        Toast.makeText(HomeActivity.this, "fail add", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HomeActivity1.this, "fail add", Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -89,9 +85,9 @@ public class HomeActivity extends AppCompatActivity {
                 Boolean checkupdatedata= DB.updateitemdata(nameTXT,contactTXT, priceTXT, categoryTXT);
 
                 if(checkupdatedata==true){
-                    Toast.makeText(HomeActivity.this, "updated", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "updated", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(HomeActivity.this, "fail update", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "fail update", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -108,9 +104,9 @@ public class HomeActivity extends AppCompatActivity {
                 Boolean checkdeletedata= DB.deleteitemdata(nameTXT);
 
                 if(checkdeletedata==true){
-                    Toast.makeText(HomeActivity.this, "delete", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "delete", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(HomeActivity.this, "fail delete", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity1.this, "fail delete", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -133,9 +129,9 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()) {
             case R.id.logoutMenu: {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity1.class);
                 finish();
-                startActivity(new Intent(HomeActivity.this , MainActivity.class));
+                startActivity(new Intent(HomeActivity1.this , MainActivity1.class));
 
             }
 
