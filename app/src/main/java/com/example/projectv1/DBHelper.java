@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
-public class DBHelper1 extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "Login1.db";
 
     // public static final String TABLENAME1 = "users2";
@@ -17,11 +17,11 @@ public class DBHelper1 extends SQLiteOpenHelper {
 
     public static final String COL3 ="email";
 
-    public DBHelper1(@Nullable Context context) {
+    public DBHelper(@Nullable Context context) {
         super(context, DBNAME, null, 1);
     }
 
-    public static DBHelper1 getInstance() {
+    public static DBHelper getInstance() {
         return null;
     }
 

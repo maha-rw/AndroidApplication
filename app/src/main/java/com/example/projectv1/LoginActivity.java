@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity1 extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login;
     DBHelper DB;
@@ -33,18 +33,18 @@ public class LoginActivity1 extends AppCompatActivity {
 
                 if(user.equals(""))
                 {
-                    Toast.makeText(LoginActivity1.this, "Please enter User name", Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(LoginActivity.this, "Please enter User name", Toast.LENGTH_SHORT).show();}
                 else if (pass.equals("")) {
-                    Toast.makeText(LoginActivity1.this, "Please enter Password", Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(LoginActivity.this, "Please enter Password", Toast.LENGTH_SHORT).show();}
 
                 else{
                     Boolean check = DB.checkUsernamePassword(user, pass);
                     if (check){
-                        Toast.makeText(LoginActivity1.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(LoginActivity1.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

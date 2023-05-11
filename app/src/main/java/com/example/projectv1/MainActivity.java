@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity1 extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     EditText username, password, email;
     Button register, login;
 
@@ -36,15 +36,15 @@ public class MainActivity1 extends AppCompatActivity {
                 String regex = "^(.+)@(.+)$"; // to validate email
 
                 if (user.equals("") )
-                {  Toast.makeText(MainActivity1.this, "Please enter User name", Toast.LENGTH_SHORT).show();}
-                else if (uemail.equals("")) {Toast.makeText(MainActivity1.this, "Please enter Email ", Toast.LENGTH_SHORT).show();  }
-                else if ( pass.equals("")) { Toast.makeText(MainActivity1.this, "Please enter Password", Toast.LENGTH_SHORT).show(); }
+                {  Toast.makeText(MainActivity.this, "Please enter User name", Toast.LENGTH_SHORT).show();}
+                else if (uemail.equals("")) {Toast.makeText(MainActivity.this, "Please enter Email ", Toast.LENGTH_SHORT).show();  }
+                else if ( pass.equals("")) { Toast.makeText(MainActivity.this, "Please enter Password", Toast.LENGTH_SHORT).show(); }
                 else if (user.length() < 6) {
-                    Toast.makeText(MainActivity1.this, "User name should be at least 6 characters ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "User name should be at least 6 characters ", Toast.LENGTH_SHORT).show();
                 } else if (!uemail.matches(regex)) {
-                    Toast.makeText(MainActivity1.this, "Please enter a correct email ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter a correct email ", Toast.LENGTH_SHORT).show();
                 } else if (pass.length() < 8 || !isCapital(pass)) {
-                    Toast.makeText(MainActivity1.this, "Password should be at least 8 characters/numbers and contains a capital letter ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Password should be at least 8 characters/numbers and contains a capital letter ", Toast.LENGTH_SHORT).show();
                 }
               else{
                     Boolean checkUser = DB.checkUsername(user);
@@ -54,15 +54,15 @@ public class MainActivity1 extends AppCompatActivity {
                     if(!checkUser && !checkEmail){
                         Boolean insert = DB.insertData(user, pass, uemail);
                         if(insert){
-                            Toast.makeText(MainActivity1.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(MainActivity1.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
-                        Toast.makeText(MainActivity1.this,"Already exists! please log in instead",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,"Already exists! please log in instead",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
