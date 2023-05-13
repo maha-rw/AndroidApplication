@@ -56,11 +56,10 @@
         android:id="@+id/btnInsert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/category"
-        android:layout_marginTop="30dp"
         android:text="Insert item"
         android:textSize="24dp"
-        app:iconTint="#00BCD4" />
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/category"/>
 
     <Button
         android:id="@+id/btnUpdate"

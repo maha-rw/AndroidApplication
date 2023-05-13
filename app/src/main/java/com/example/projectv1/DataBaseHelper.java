@@ -1,6 +1,5 @@
 package com.example.projectv1;
 
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -16,7 +15,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create Table ItemDetails(name TEXT primary key, contact TEXT, price TEXT, category TEXT )");
+        DB.execSQL("create Table ItemDetails(name TEXT primary key , contact TEXT, price TEXT, category TEXT )");
     }
 
     @Override
@@ -29,6 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public boolean insertitemdata(String name, String contact, String price, String category){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues cv= new ContentValues();
+
         cv.put("name", name);
         cv.put("contact", contact);
         cv.put("price", price);
@@ -89,5 +89,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor cursor= DB.rawQuery("Select * From ItemDetails ", null);
         return cursor;
     }
+
+
+
+
+    public boolean  checkName(String name){
+        SQLiteDatabase DB = this.getReadableDatabase();
+
+        Cursor cursor= DB.rawQuery("Select * From ItemDetails Where name = ?", new String[] {name});
+        if(cursor.getCount()>0) {
+            return false;}
+        else
+            return true;
+    }
+
 
 }
