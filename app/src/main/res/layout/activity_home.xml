@@ -6,4 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/texttitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your item info"
+            android:textSize="24dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/texttitle"
+            android:hint="Item Name"
+            android:inputType="textPersonName"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contact"
+            android:hint="Price/hour"
+            android:inputType="number"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price"
+            android:hint="Item Category"
+            android:inputType="textPersonName"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/btnInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Insert item"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/category"/>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update item"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/btnInsert"/>
+
+
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="delete item"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/btnUpdate"/>
+
+        <Button
+            android:id="@+id/btnView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="view item"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/btnDelete"/>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
