@@ -1,4 +1,5 @@
 package com.example.projectv1;
+//
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
               else{
                     Boolean checkUser = DB.checkUsername(user);
                     Boolean checkEmail = DB.checkEmail(uemail);
-                    //  Boolean checkemail = DB.checkemail(uemail,user);
 
                     if(!checkUser && !checkEmail){
                         Boolean insert = DB.insertData(user, pass, uemail);
