@@ -1,5 +1,8 @@
+/*About Delete feature: To delete an item, the Item Name (at least) must be entered, then
+the Delete button can be pressed to perform the deletion.
+ Please note that the Item Name is unique so you can’t insert 2 items with the same name. */
+
 package com.example.projectv1;
-////
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

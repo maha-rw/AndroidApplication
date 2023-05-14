@@ -144,7 +144,7 @@ DataBaseHelper DB;
                     buffer.append("Name : " + res.getString(0)+"\n"); /////since no insert of id?? WE START FROM 1
                     buffer.append("contact : " + res.getString(1)+"\n");
                     buffer.append("price : " + res.getString(2)+"\n");
-                    buffer.append("category : " + res.getString(3)+"\n");
+                    buffer.append("category : " + res.getString(3)+"\n\n");
 
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
