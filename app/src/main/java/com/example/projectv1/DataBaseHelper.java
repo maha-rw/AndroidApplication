@@ -12,13 +12,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    public DataBaseHelper(@Nullable Context context ) {
+    public DataBaseHelper(@Nullable Context context )  {
         super(context, "item.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create Table ItemDetails(name TEXT primary key , contact TEXT, price TEXT, category TEXT )");
+        DB.execSQL("create Table ItemDetails(name TEXT primary key , contact TEXT, price TEXT, category TEXT )"); // add user name
     }
 
     @Override
@@ -102,7 +102,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return false;}
         else
             return true;
+
+
     }
 
 
 }
+
+
+// lina

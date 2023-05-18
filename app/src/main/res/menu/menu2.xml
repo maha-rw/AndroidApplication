@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/logoutMenu"
+        android:id="@+id/logoutMenu2"
         android:orderInCategory="100"
         app:showAsAction="always"
         android:title="Logout">
@@ -12,18 +12,15 @@
     </item>
 
     <item
-        android:id="@+id/viewitem1"
+        android:id="@+id/control"
         android:orderInCategory="100"
         app:showAsAction="always"
-        android:title="View Items">
+        android:title="Control Page">
 
 
     </item>
 
 
-
     <!--    by maha  -->
-    <!--    by lina  -->
-
 
 </menu>

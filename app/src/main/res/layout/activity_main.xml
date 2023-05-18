@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/wave30"
+    >
     <!--    by maha  -->
 
     <EditText
         android:id="@+id/username1"
         android:layout_width="246dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="28dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="User Name"
@@ -20,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -34,6 +37,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btnregister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        android:textColor="@color/black"
+        style="bold"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -104,7 +109,23 @@
         android:layout_height="147dp"
         app:layout_constraintBottom_toTopOf="@+id/username1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.513"
         app:srcCompat="@drawable/blueheaven" />
+
+    <TextView
+        android:id="@+id/welcometext"
+        style="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:includeFontPadding="false"
+        android:text="Welcome to our Heaven !!"
+        android:textColor="#165E68"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="229dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    by lina  -->

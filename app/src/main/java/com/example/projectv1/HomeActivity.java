@@ -132,6 +132,15 @@ DataBaseHelper DB;
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ViewItem.class));
+
+
+
+            }
+        });
+
+
+/*
                 Cursor res =DB.getdata();
                 if(res.getCount()==0){
                     Toast.makeText(HomeActivity.this, "no entery", Toast.LENGTH_LONG).show();
@@ -153,9 +162,13 @@ DataBaseHelper DB;
                 builder.setMessage(buffer.toString());
                 builder.show();
             }
+           
+
+
+
         });
 
-
+*/
 
 //for oncreate()
     }
@@ -169,7 +182,15 @@ DataBaseHelper DB;
             case R.id.logoutMenu: {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 finish();
-                startActivity(new Intent(HomeActivity.this , MainActivity.class));
+                startActivity(new Intent(getApplicationContext() , MainActivity.class));
+
+            } // lina add this -- > for view item page
+            case R.id.viewitem1:{
+                Intent intent = new Intent(getApplicationContext(), ViewItem.class);
+                startActivity(new Intent(HomeActivity.this , ViewItem.class));
+
+                finish();
+
 
             }
 
@@ -178,3 +199,6 @@ DataBaseHelper DB;
         return super.onOptionsItemSelected(item);
         }
     }
+
+// lina
+
