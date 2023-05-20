@@ -1,5 +1,6 @@
 package com.example.projectv1;
 ////
+//maha
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,13 +16,12 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login;
     DBHelper DB;
-
-    public static String userNameL ;
-
+    public static String UserInL; //////^^^^^^^^^^^^^^^
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.username2);
@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String user = username.getText().toString();
-                userNameL = user;
                 String pass = password.getText().toString();
+                UserInL = user;
 
                 if(user.equals(""))
                 {
@@ -45,8 +45,9 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Boolean check = DB.checkUsernamePassword(user, pass);
                     if (check){
-                        //userNameL = user;
+                        UserInL = user;
                         Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Logged IN:" + UserInL, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                         startActivity(intent);
                     } else {

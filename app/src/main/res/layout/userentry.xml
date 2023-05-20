@@ -8,113 +8,104 @@
     android:layout_margin="16dp"
     android:backgroundTint="#efefef">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_margin="16dp"
-       android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-           android:layout_gravity="center_vertical">
-           
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Item Name: "
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-           <TextView
-               android:id="@+id/itemname"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-       </LinearLayout>
+            android:layout_gravity="center_vertical">
 
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Name: "
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+            <TextView
+                android:id="@+id/itemname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+        </LinearLayout>
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Item Price/per hour: "
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-           <TextView
-               android:id="@+id/itemprice"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
 
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Price/per hour: "
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+            <TextView
+                android:id="@+id/itemprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+        </LinearLayout>
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Owner Phone Number: "
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-           <TextView
-               android:id="@+id/phone"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
 
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner Phone Number: "
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+        </LinearLayout>
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Item Category: "
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-           <TextView
-               android:id="@+id/itemcategory"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="20dp"
-               android:textColor="@color/teal_700"
-               style="bold"/>
-       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Category: "
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+            <TextView
+                android:id="@+id/itemcategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+        </LinearLayout>
 
 
 
-
-
-
-
-   </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
-
-
-
-
+    <!-- m -->
 
 

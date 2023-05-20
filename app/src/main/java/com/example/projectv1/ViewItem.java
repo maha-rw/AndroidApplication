@@ -1,4 +1,5 @@
 package com.example.projectv1;
+//maha//
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +19,9 @@ import java.util.Currency;
 public class ViewItem extends AppCompatActivity {
     RecyclerView recyclerView ;
     ArrayList<String> item , phone , price , category ;
+    String ownerName; /////////////////////:::::::::::::::::::::::::
     DBHelper DB ;
-    MyAdapter adapter ;
+    MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class ViewItem extends AppCompatActivity {
         price = new ArrayList<>();
         phone = new ArrayList<>();
         category = new ArrayList<>();
+        ownerName = LoginActivity.UserInL; /////////////////////:::::::::::::::::::::::::
 
         recyclerView = findViewById(R.id.recycleview);
 
@@ -48,7 +51,7 @@ public class ViewItem extends AppCompatActivity {
         Cursor cursor = DB.getdata();
         if (cursor.getCount()==0){
             Toast.makeText(ViewItem.this, "No Entry Exist", Toast.LENGTH_SHORT).show();
-             return;
+            return;
         }
         else {
             while (cursor.moveToNext())
@@ -57,8 +60,6 @@ public class ViewItem extends AppCompatActivity {
                 phone.add(cursor.getString(1 )); // check shosho
                 price.add(cursor.getString(2)); // check shosho
                 category.add(cursor.getString(3 )); // check shosho
-
-
 
             }
         }

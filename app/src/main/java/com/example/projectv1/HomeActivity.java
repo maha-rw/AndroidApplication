@@ -1,10 +1,10 @@
 package com.example.projectv1;
+//maha
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -22,13 +22,12 @@ import java.util.Calendar;
 public class HomeActivity extends AppCompatActivity {
 
     private DBHelper  firebaseAuth ; //lina
-// add and delete codes
-EditText name, contact, price, category;
-Button insert, update, delete, view;
+    // add and delete codes
+    EditText name, contact, price, category;
+    Button insert, update, delete, view;
     DBHelper DB;
 
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,6 @@ Button insert, update, delete, view;
         contact = findViewById(R.id.contact);
         price = findViewById(R.id.price);
         category = findViewById(R.id.category);
-        String ownername = LoginActivity.userNameL;  //////////***********
 
 
         insert = findViewById(R.id.btnInsert);
@@ -57,13 +55,11 @@ Button insert, update, delete, view;
                 String contactTXT = contact.getText().toString();
                 String priceTXT = price.getText().toString();
                 String categoryTXT = category.getText().toString();
-                String ownernameTXT = LoginActivity.userNameL; //////********
-
                 Boolean checkNamee= DB.checkName(nameTXT);
 
 
                 //EMPTY FIELD
-                if (nameTXT.equals("") || contactTXT.equals("") || priceTXT.equals("") || categoryTXT.equals("") || LoginActivity.userNameL.equals("")) {
+                if (nameTXT.equals("") || contactTXT.equals("") || priceTXT.equals("") || categoryTXT.equals("")) {
                     Toast.makeText(HomeActivity.this, "ENTER ALL FIELDS", Toast.LENGTH_LONG).show();
 
                 }
@@ -82,7 +78,7 @@ Button insert, update, delete, view;
 
                 } else {
 
-                    Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT,LoginActivity.userNameL );
+                    Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT, LoginActivity.UserInL );
 
 
                     if (checkinsertdata == true) {
@@ -97,15 +93,13 @@ Button insert, update, delete, view;
             }
         });
 
-      /*  update.setOnClickListener(new View.OnClickListener() {
+       /* update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nameTXT = name.getText().toString();
                 String contactTXT = contact.getText().toString();
                 String priceTXT = price.getText().toString();
                 String categoryTXT = category.getText().toString();
-                String ownernameTXT = ownername.getText().toString();
-
 
                 Boolean checkupdatedata = DB.updateitemdata(nameTXT, contactTXT, priceTXT, categoryTXT);
 
@@ -122,16 +116,14 @@ Button insert, update, delete, view;
             @Override
             public void onClick(View view) {
                 String nameTXT= name.getText().toString();
-                 //////////***********
 
 
-
-                Boolean checkdeletedata= DB.deleteitemdata(nameTXT,LoginActivity.userNameL);
+                Boolean checkdeletedata= DB.deleteitemdata(nameTXT, LoginActivity.UserInL);
 
                 if(checkdeletedata==true){
-                    Toast.makeText(HomeActivity.this, "deleted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity.this, "Deleted successfully", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(HomeActivity.this, "fail delete", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity.this, "Deleting Failed!", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -171,7 +163,7 @@ Button insert, update, delete, view;
                 builder.setMessage(buffer.toString());
                 builder.show();
             }
-           
+
 
 
 
@@ -181,8 +173,8 @@ Button insert, update, delete, view;
 
 //for oncreate()
     }
-// lina
-        public boolean onCreateOptionsMenu(Menu menu) {
+    // lina
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu , menu);
         return true;
     }
@@ -206,8 +198,7 @@ Button insert, update, delete, view;
 
         }
         return super.onOptionsItemSelected(item);
-        }
     }
+}
 
 // lina
-

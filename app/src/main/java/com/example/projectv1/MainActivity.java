@@ -1,5 +1,6 @@
 package com.example.projectv1;
 ////
+//maha
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,9 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class  MainActivity extends AppCompatActivity {
-    public static String userNameM;
     EditText username, password, email;
     Button register, login;
+
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +48,16 @@ public class  MainActivity extends AppCompatActivity {
                 } else if (pass.length() < 8 || !isCapital(pass)) {
                     Toast.makeText(MainActivity.this, "Password should be at least 8 characters/numbers and contains a capital letter ", Toast.LENGTH_SHORT).show();
                 }
-              else{
+                else{
                     Boolean checkUser = DB.checkUsername(user);
                     Boolean checkEmail = DB.checkEmail(uemail);
-                    userNameM = user;
 
                     if(!checkUser && !checkEmail){
-                        Boolean insert = DB.insertUser(user, pass, uemail);
+                        Boolean insert = DB.insertData(user, pass, uemail);
                         if(insert){
                             Toast.makeText(MainActivity.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                             startActivity(intent);
-                            String userIn = user; //////////////******************
                         }else{
                             Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                         }
@@ -80,7 +79,7 @@ public class  MainActivity extends AppCompatActivity {
         });
 
 
-            }
+    }
     @SuppressLint("SuspiciousIndentation")
     public boolean isCapital(String str)
     {
@@ -96,7 +95,7 @@ public class  MainActivity extends AppCompatActivity {
             return false;}
         else
         {
-             return true;}
+            return true;}
     }
 }
 
