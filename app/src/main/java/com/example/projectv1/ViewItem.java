@@ -18,14 +18,14 @@ import java.util.Currency;
 public class ViewItem extends AppCompatActivity {
     RecyclerView recyclerView ;
     ArrayList<String> item , phone , price , category ;
-    DataBaseHelper DB ;
+    DBHelper DB ;
     MyAdapter adapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_item);
-        DB = new DataBaseHelper(this);
+        DB = new DBHelper(this);
         item = new ArrayList<>();
         price = new ArrayList<>();
         phone = new ArrayList<>();

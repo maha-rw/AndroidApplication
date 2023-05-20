@@ -63,6 +63,7 @@
             android:inputType="textPersonName"
             android:textSize="24dp" />
 
+
         <Button
             android:id="@+id/btnInsert"
             android:layout_width="match_parent"

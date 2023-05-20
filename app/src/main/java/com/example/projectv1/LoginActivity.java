@@ -16,6 +16,9 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     DBHelper DB;
 
+    public static String userNameL ;
+
+
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String user = username.getText().toString();
+                userNameL = user;
                 String pass = password.getText().toString();
 
                 if(user.equals(""))
@@ -41,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Boolean check = DB.checkUsernamePassword(user, pass);
                     if (check){
+                        //userNameL = user;
                         Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                         startActivity(intent);

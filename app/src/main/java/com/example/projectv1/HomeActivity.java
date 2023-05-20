@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -24,9 +25,10 @@ public class HomeActivity extends AppCompatActivity {
 // add and delete codes
 EditText name, contact, price, category;
 Button insert, update, delete, view;
-DataBaseHelper DB;
+    DBHelper DB;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ DataBaseHelper DB;
         contact = findViewById(R.id.contact);
         price = findViewById(R.id.price);
         category = findViewById(R.id.category);
+        String ownername = LoginActivity.userNameL;  //////////***********
 
 
         insert = findViewById(R.id.btnInsert);
@@ -45,7 +48,7 @@ DataBaseHelper DB;
         delete = findViewById(R.id.btnDelete);
         view = findViewById(R.id.btnView);
 
-        DB = new DataBaseHelper(this);
+        DB = new DBHelper(this);
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +57,13 @@ DataBaseHelper DB;
                 String contactTXT = contact.getText().toString();
                 String priceTXT = price.getText().toString();
                 String categoryTXT = category.getText().toString();
+                String ownernameTXT = LoginActivity.userNameL; //////********
+
                 Boolean checkNamee= DB.checkName(nameTXT);
 
 
                 //EMPTY FIELD
-                if (nameTXT.equals("") || contactTXT.equals("") || priceTXT.equals("") || categoryTXT.equals("")) {
+                if (nameTXT.equals("") || contactTXT.equals("") || priceTXT.equals("") || categoryTXT.equals("") || LoginActivity.userNameL.equals("")) {
                     Toast.makeText(HomeActivity.this, "ENTER ALL FIELDS", Toast.LENGTH_LONG).show();
 
                 }
@@ -77,7 +82,7 @@ DataBaseHelper DB;
 
                 } else {
 
-                    Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT);
+                    Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT,LoginActivity.userNameL );
 
 
                     if (checkinsertdata == true) {
@@ -92,13 +97,15 @@ DataBaseHelper DB;
             }
         });
 
-        update.setOnClickListener(new View.OnClickListener() {
+      /*  update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nameTXT = name.getText().toString();
                 String contactTXT = contact.getText().toString();
                 String priceTXT = price.getText().toString();
                 String categoryTXT = category.getText().toString();
+                String ownernameTXT = ownername.getText().toString();
+
 
                 Boolean checkupdatedata = DB.updateitemdata(nameTXT, contactTXT, priceTXT, categoryTXT);
 
@@ -110,17 +117,19 @@ DataBaseHelper DB;
                 }
 
             }
-        });
+        });*/
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nameTXT= name.getText().toString();
+                 //////////***********
 
 
-                Boolean checkdeletedata= DB.deleteitemdata(nameTXT);
+
+                Boolean checkdeletedata= DB.deleteitemdata(nameTXT,LoginActivity.userNameL);
 
                 if(checkdeletedata==true){
-                    Toast.makeText(HomeActivity.this, "delete", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity.this, "deleted", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(HomeActivity.this, "fail delete", Toast.LENGTH_LONG).show();
 

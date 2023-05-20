@@ -12,9 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class  MainActivity extends AppCompatActivity {
+    public static String userNameM;
     EditText username, password, email;
     Button register, login;
-
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +50,15 @@ public class  MainActivity extends AppCompatActivity {
               else{
                     Boolean checkUser = DB.checkUsername(user);
                     Boolean checkEmail = DB.checkEmail(uemail);
+                    userNameM = user;
 
                     if(!checkUser && !checkEmail){
-                        Boolean insert = DB.insertData(user, pass, uemail);
+                        Boolean insert = DB.insertUser(user, pass, uemail);
                         if(insert){
                             Toast.makeText(MainActivity.this, "Registered successfully!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(intent);
+                            String userIn = user; //////////////******************
                         }else{
                             Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                         }
