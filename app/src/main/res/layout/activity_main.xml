@@ -115,17 +115,7 @@
         app:layout_constraintVertical_bias="0.513"
         app:srcCompat="@drawable/blueheaven" />
 
-    <TextView
-        android:id="@+id/welcometext"
-        style="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="casual"
-        android:includeFontPadding="false"
-        android:text="Welcome to our Heaven !!"
-        android:textColor="#165E68"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="229dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- by lina-->
+    <!--by lina1 -->

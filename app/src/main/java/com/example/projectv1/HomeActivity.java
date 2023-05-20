@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     private DBHelper  firebaseAuth ; //lina
     // add and delete codes
     EditText name, contact, price, category;
-    Button insert, update, delete, view;
+    Button insert,  delete, view;
     DBHelper DB;
 
 
@@ -42,7 +42,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
         insert = findViewById(R.id.btnInsert);
-        update = findViewById(R.id.btnUpdate);
         delete = findViewById(R.id.btnDelete);
         view = findViewById(R.id.btnView);
 
@@ -173,32 +172,39 @@ public class HomeActivity extends AppCompatActivity {
 
 //for oncreate()
     }
-    // lina
+    // menu
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu , menu);
+        getMenuInflater().inflate(R.menu.menu_main , menu);
         return true;
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.logoutMenu: {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                finish();
-                startActivity(new Intent(getApplicationContext() , MainActivity.class));
 
-            } // lina add this -- > for view item page
-            case R.id.viewitem1:{
-                Intent intent = new Intent(getApplicationContext(), ViewItem.class);
-                startActivity(new Intent(HomeActivity.this , ViewItem.class));
+        int id = item.getItemId();
 
-                finish();
-
-
-            }
-
-
+        if (id==R.id.LOGOUT){
+            Intent intent = new Intent(HomeActivity.this , MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        else
+        if (id==R.id.OWNERPAGE){
+            Intent intent = new Intent(HomeActivity.this , HomeActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        else
+        if (id==R.id.SEEKERPAGE){
+            Intent intent = new Intent(HomeActivity.this , SeekerPage.class);
+            startActivity(intent);
+            return true;
+        }else
+        if (id==R.id.VIWEITEM) {
+            Intent intent = new Intent(HomeActivity.this, ViewItem.class);
+            startActivity(intent);
+            return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-}
+    }}
+
 
 // lina

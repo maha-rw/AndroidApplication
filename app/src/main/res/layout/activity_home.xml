@@ -72,14 +72,6 @@
             android:layout_marginTop="30dp"
             android:layout_below="@id/category"/>
 
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update item"
-            android:textSize="24dp"
-            android:layout_marginTop="30dp"
-            android:layout_below="@id/btnInsert"/>
 
 
 
@@ -90,7 +82,7 @@
             android:text="delete item"
             android:textSize="24dp"
             android:layout_marginTop="30dp"
-            android:layout_below="@id/btnUpdate"/>
+            android:layout_below="@id/btnInsert"/>
 
         <Button
             android:id="@+id/btnView"
@@ -105,7 +97,7 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--by lina -->
+    <!--by lina1 -->
 
 
 

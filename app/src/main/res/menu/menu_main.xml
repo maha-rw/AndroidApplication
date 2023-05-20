@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
+
+    <item
+        android:id="@+id/LOGOUT"
+        android:orderInCategory="100"
+        android:title="LOGOUT"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/OWNERPAGE"
+        android:orderInCategory="100"
+        android:title="Owner page"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/SEEKERPAGE"
+        android:orderInCategory="100"
+        android:title="Seeker page"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/VIWEITEM"
+        android:orderInCategory="100"
+        android:title="Item page"
+        app:showAsAction="never"/>
+
+</menu>

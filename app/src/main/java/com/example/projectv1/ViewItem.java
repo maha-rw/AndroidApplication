@@ -67,30 +67,33 @@ public class ViewItem extends AppCompatActivity {
 
     }
 
-    public boolean onCreateOptionsMenu(Menu menu2) {
-        getMenuInflater().inflate(R.menu.menu2 , menu2);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.logoutMenu2: {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(new Intent(ViewItem.this , MainActivity.class));
-                finish();
 
+        int id = item.getItemId();
 
-            } // lina add this -- > for view item page
-            case R.id.control:{
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(new Intent(ViewItem.this , HomeActivity.class));
-
-                finish();
-
-
-            }
-
-
+        if (id == R.id.LOGOUT) {
+            Intent intent = new Intent(ViewItem.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.OWNERPAGE) {
+            Intent intent = new Intent(ViewItem.this, HomeActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.SEEKERPAGE) {
+            Intent intent = new Intent(ViewItem.this, SeekerPage.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.VIWEITEM) {
+            Intent intent = new Intent(ViewItem.this, ViewItem.class);
+            startActivity(intent);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 }
+//bylina

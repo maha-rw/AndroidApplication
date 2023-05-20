@@ -28,7 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         DB.execSQL("drop Table if exists ItemDetails");
     }
 
-
+//bylina
 
     public boolean insertitemdata(String name, String contact, String price, String category){
         SQLiteDatabase DB = this.getWritableDatabase();
