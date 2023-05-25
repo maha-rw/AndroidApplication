@@ -156,7 +156,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getdata(String UserInL){
         SQLiteDatabase DB = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE2 + " WHERE username = '" + UserInL + "'"; // error in user
+        String query = "SELECT * FROM " + TABLE2 + " WHERE OwnerName = '" + UserInL + "'"; // error in user
         Cursor res = DB.rawQuery(query, null);
         return res;
 
