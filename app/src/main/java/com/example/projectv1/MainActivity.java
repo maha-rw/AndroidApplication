@@ -1,6 +1,5 @@
 package com.example.projectv1;
 ////
-//maha
 
 import androidx.appcompat.app.AppCompatActivity;
 

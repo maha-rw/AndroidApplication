@@ -7,7 +7,6 @@
     android:background="@drawable/wave30"
 
     tools:context=".HomeActivity">
-    <!--by maha-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -99,11 +98,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnView"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="20dp"
             android:background="#bad2d9"
-            android:textSize="17dp"
-
             android:text="Dear owner,\nto facilitate the process of deleting your item, you can delete the item only by entering the name of the item and then pressing DELETE ITEM"
+
+            android:textSize="17dp"
             tools:ignore="ExtraText" />
 
     </RelativeLayout>

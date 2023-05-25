@@ -1,6 +1,6 @@
 package com.example.projectv1;
 
-//maha
+////maha 26th of may
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DBNAME = "BlueHeaven8.db";
+    public static final String DBNAME = "BlueHeaven11.db";
 
 //USERS TABLE
     public static final String TABLE = "Users";
@@ -29,9 +29,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL55 ="OwnerName";
     public static final String COL66 ="Availability";
 
-
-
-
+// Available Items TABLE
+public static final String TABLE3 = "RentedItems";
+    public static final String COL111 = "ItemName";
+    public static final String COL222 = "UserName";
 
 
 
@@ -46,6 +47,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1  ) {
         sqLiteDatabase.execSQL("drop Table if exists " + TABLE);
         sqLiteDatabase.execSQL("drop Table if exists " + TABLE2);
+        sqLiteDatabase.execSQL("drop Table if exists " + TABLE3);
+
 
     }
 
@@ -56,8 +59,9 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(statement);
         String statement2 = "CREATE TABLE Items(ItemName Text primary key , Contact TEXT, Price TEXT, Category TEXT, OwnerName TEXT, Availability TEXT )";
         sqLiteDatabase.execSQL(statement2);
+        String statement3 = "CREATE TABLE RentedItems(ItemName Text , UserName Text, PRIMARY KEY (ItemName, UserName))" ;
+        sqLiteDatabase.execSQL(statement3);
 
-        // sqLiteDatabase.execSQL("create Table " + TABLE + "(" + COL1 + " TEXT primary key, " + COL2 + " TEXT,  " +  COLU3 + " TEXT, " +  COLU4 + " TEXT, " +  COLU5 + " TEXT)  ");
     }
 
     // @Override
@@ -77,21 +81,21 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean checkUsername(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from " + TABLE + " where " + COL1 + " = ?", new String[]{username});
+        Cursor cursor = MyDB.rawQuery("Select * from  Users  WHERE  LOWER(username)  = LOWER(?)", new String[]{username});
         if (cursor.getCount() > 0) return true;
         return false;
     }
 
     public Boolean checkUsernamePassword(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from " + TABLE + " where " + COL1 + " = ? and " + COL2 + " = ?", new String[] {username,password});
+        Cursor cursor = MyDB.rawQuery("Select * from  Users  where  LOWER(username)  = LOWER(?) and  password  = ?", new String[] {username,password});
         if(cursor.getCount()>0) return true;
         return false;
     }
 
     public  Boolean checkEmail(String email ){ // modify on this
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from " + TABLE + " where " + COL3 + " = ?", new String[]{email});
+        Cursor cursor = MyDB.rawQuery("Select * from Users  where  LOWER(email)  = LOWER(?)", new String[]{email});
         if(cursor.getCount()>0) return true;
         return false;
     }
@@ -113,35 +117,16 @@ public class DBHelper extends SQLiteOpenHelper {
         long result=DB.insert(TABLE2, null, contentValues);
         if(result==-1)
             return false;
-        return true;
-    }
+            return true;
 
-    /*public boolean updateitemdata(String name, String contact, String price, String category){
-        SQLiteDatabase DB = this.getWritableDatabase();
-        ContentValues cv= new ContentValues();
-        //cv.put("name", name); //SINCE WE WILL ONLY UPDATE OTHER
-        cv.put("contact", contact);
-        cv.put("price", price);
-        cv.put("category", category);
-        Cursor cursor= DB.rawQuery("Select * From ItemDetails Where name = ?", new String[] {name});
-        if(cursor.getCount()>0) {
-            long result = DB.update("ItemDetails", cv, "name=?", new String[]{name});
-            if (result == -1) {
-                return false;
-            } else {
-                return true;
-            }
-        }else{
-            return false;
-        }
-    }*/
+    }
 
     public boolean  deleteitemdata(String name, String owner){
         SQLiteDatabase DB = this.getWritableDatabase();
 
-        Cursor cursor = DB.rawQuery("SELECT * FROM Items WHERE ItemName = ? AND OwnerName = ?", new String[] {name, owner});
+        Cursor cursor = DB.rawQuery("SELECT * FROM Items WHERE LOWER(ItemName) = LOWER(?) AND OwnerName = ?", new String[] {name, owner});
         if(cursor.getCount()>0) {
-            long result = DB.delete("Items", "ItemName=?", new String[]{name});
+            long result = DB.delete("LOWER(Items)", "LOWER(ItemName)=LOWER(?)", new String[]{name});
             if (result == -1) {
                 return false;
             } else {
@@ -169,8 +154,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public boolean  checkName(String name){
         SQLiteDatabase DB = this.getReadableDatabase();
-
-        Cursor cursor= DB.rawQuery("Select * From Items Where ItemName = ?", new String[] {name});
+        Cursor cursor= DB.rawQuery("Select * From Items Where LOWER(ItemName) = LOWER(?)", new String[] {name});
         if(cursor.getCount()>0) {
             return false;}
         else
@@ -178,6 +162,86 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     }
+
+    //EXTRA METHODS
+    public boolean isAvailable(String item)
+    {
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor= DB.rawQuery("Select Availability From Items Where LOWER(ItemName) = LOWER(?)", new String[] {item});
+        if (cursor.moveToFirst()) {
+            String availability = cursor.getString(0);
+            if(availability.equals("yes"))
+                return true;
+            return false;
+        }
+        return false;
+    }
+
+    public  Cursor getAllAvailable()
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+
+        Cursor cursor= DB.rawQuery(" SELECT * From Items WHERE LOWER(availability) = 'yes' ", null);
+        return cursor;
+    }
+
+    // AvailableItems TABLE methods starts HERE
+
+
+public boolean rent(String item, String user)
+{
+    if ( isAvailable(item))//checking for availability, already check for existence in SeekerPage
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+            ContentValues contentValues= new ContentValues();
+            contentValues.put(COL111, item);
+            contentValues.put(COL222, user);
+
+
+                //upadte availbility
+
+                Cursor cursor= DB.rawQuery("Select * From Items Where LOWER(ItemName) = LOWER(?) AND LOWER(OwnerName)= LOWER(?) ", new String[] {item,user});
+                if(cursor.getCount()>0) {
+                    return false; //because user can't rent his own items
+                }
+
+
+                    ContentValues cv= new ContentValues();
+                    cv.put("Availability", "no");
+                    long result2 = DB.update("Items", cv, "LOWER(ItemName)=LOWER(?)", new String[]{item});
+                    if (result2 == -1)
+                        return false;
+                    else{
+                        long result = DB.insert(TABLE3, null,contentValues);
+                        if (result == -1) { return false;}
+                        return true;
+                    }
+            }
+
+         else{//not available
+            return false;
+        }
+}// end rent
+
+    public boolean returnItem(String item , String user){
+
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("SELECT * FROM RentedItems WHERE LOWER(ItemName) = LOWER(?) AND LOWER(UserName) = LOWER(?)", new String[] {item,user});
+        if(cursor.getCount()>0) {
+            long result = DB.delete("RentedItems", "LOWER(ItemName)=LOWER(?)", new String[]{item});
+            if (result == -1) {
+                return false;
+            } else {
+                ContentValues cv= new ContentValues();
+                cv.put("Availability", "yes");
+                long result2 = DB.update("Items", cv, "LOWER(ItemName) =LOWER(?)", new String[]{item});
+                if (result2 == -1)
+                    return false;
+                return true;
+            }
+        }else{//not the user's item to return
+            return false; }
+    }// end return
 
 
 

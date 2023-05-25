@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Currency;
 
 public class ViewItem extends AppCompatActivity {
     RecyclerView recyclerView ;

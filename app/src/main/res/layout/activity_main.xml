@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/wave30"
     >
-    <!---->
+
 
     <EditText
         android:id="@+id/username1"

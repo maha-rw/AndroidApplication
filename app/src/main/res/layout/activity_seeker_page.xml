@@ -4,10 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SeekerPage">
-    <!--by lina1 -->
+    android:background="@drawable/wave30"
 
+    tools:context=".SeekerPage">
+
+<!--  -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent"
+        tools:context=".SeekerPage">
+
+    <TextView
+        android:id="@+id/texttitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter the name of the item you would like to rent/return"
+        android:textSize="24dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/texttitle2"
+            android:layout_marginTop="79dp"
+            android:hint="Item Name"
+            android:inputType="textPersonName"
+            android:textSize="24dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btnRent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rent"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/name2"/>
+
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/btnRent"/>
+
+
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--by lina2 -->
