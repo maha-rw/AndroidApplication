@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login;
     DBHelper DB;
-    public static String UserInL; //////^^^^^^^^^^^^^^^
+    public static String UserInL; //////^^^^
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
-                //
+
 
             }
         });

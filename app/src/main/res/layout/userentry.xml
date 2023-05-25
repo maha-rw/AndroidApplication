@@ -102,12 +102,33 @@
                 style="bold"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available: "
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+            <TextView
+                android:id="@+id/itemavailability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/teal_700"
+                style="bold"/>
+        </LinearLayout>
+
 
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
-    <!-- m -->
-    <!--by lina2 -->
+    <!-- availability ADDED-->
 
 
 

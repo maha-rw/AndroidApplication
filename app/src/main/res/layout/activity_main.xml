@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/wave30"
     >
-    <!--    by maha  -->
+    <!---->
 
     <EditText
         android:id="@+id/username1"
@@ -118,4 +118,3 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--by lina2 -->

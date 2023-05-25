@@ -1,6 +1,5 @@
 package com.example.projectv1;
-//maha//
-
+//*
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +19,7 @@ import java.util.Currency;
 
 public class ViewItem extends AppCompatActivity {
     RecyclerView recyclerView ;
-    ArrayList<String> item , phone , price , category ;
+    ArrayList<String> item , phone , price , category , availability ;
     String ownerName; /////////////////////:::::::::::::::::::::::::
     DBHelper DB ;
     MyAdapter adapter;
@@ -35,10 +34,11 @@ public class ViewItem extends AppCompatActivity {
         phone = new ArrayList<>();
         category = new ArrayList<>();
         ownerName = LoginActivity.UserInL; /////////////////////:::::::::::::::::::::::::
+        availability = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recycleview);
 
-        adapter = new MyAdapter(this , item , price, phone , category);
+        adapter = new MyAdapter(this , item , price, phone , category, availability);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("INSTRUCTIONS");
@@ -75,6 +75,7 @@ public class ViewItem extends AppCompatActivity {
                 phone.add(cursor.getString(1 )); // check shosho
                 price.add(cursor.getString(2)); // check shosho
                 category.add(cursor.getString(3 )); // check shosho
+                availability.add(cursor.getString(5));
 
             }
         }
@@ -111,4 +112,3 @@ public class ViewItem extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-//by lina

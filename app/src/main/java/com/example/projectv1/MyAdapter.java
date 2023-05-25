@@ -1,6 +1,5 @@
 package com.example.projectv1;
-//maha
-
+//*
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +13,15 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context context;
-    private ArrayList item_id, price_id, phone_id, category_id;
+    private ArrayList item_id, price_id, phone_id, category_id, availability_id;
 
-    public MyAdapter(Context context, ArrayList item_id, ArrayList price_id, ArrayList phone_id, ArrayList category_id) {
+    public MyAdapter(Context context, ArrayList item_id, ArrayList price_id, ArrayList phone_id, ArrayList category_id, ArrayList availability_id) {
         this.context = context;
         this.item_id = item_id;
         this.price_id = price_id;
         this.phone_id = phone_id;
         this.category_id = category_id;
+        this.availability_id = availability_id;
 
     }
 
@@ -43,6 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.price_id.setText(String.valueOf(price_id.get(position)));
         holder.phone_id.setText(String.valueOf(phone_id.get(position)));
         holder.category_id.setText(String.valueOf(category_id.get(position)));
+        holder.availability_id.setText(String.valueOf(availability_id.get(position)));
 
 
 
@@ -54,7 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView item_id , price_id , phone_id , category_id ;
+        TextView item_id , price_id , phone_id , category_id, availability_id ;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -63,12 +64,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             price_id = itemView.findViewById(R.id.itemprice);
             phone_id = itemView.findViewById(R.id.phone);
             category_id = itemView.findViewById(R.id.itemcategory);
+            availability_id = itemView.findViewById(R.id.itemavailability);
 
 
 
         }
     }
 }
-//by lina
 
 

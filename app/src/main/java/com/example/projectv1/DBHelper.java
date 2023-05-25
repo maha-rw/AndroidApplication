@@ -1,5 +1,5 @@
 package com.example.projectv1;
-////
+
 //maha
 
 import android.content.ContentValues;
@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DBNAME = "BlueHeaven4.db";
+    public static final String DBNAME = "BlueHeaven8.db";
 
 //USERS TABLE
     public static final String TABLE = "Users";
@@ -27,6 +27,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL33 = "Price";
     public static final String COL44 ="Category";
     public static final String COL55 ="OwnerName";
+    public static final String COL66 ="Availability";
+
 
 
 
@@ -52,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String statement = "CREATE TABLE Users(username Text primary key , password TEXT, email TEXT   )";
         sqLiteDatabase.execSQL(statement);
-        String statement2 = "CREATE TABLE Items(ItemName Text primary key , Contact TEXT, Price TEXT, Category TEXT, OwnerName TEXT )";
+        String statement2 = "CREATE TABLE Items(ItemName Text primary key , Contact TEXT, Price TEXT, Category TEXT, OwnerName TEXT, Availability TEXT )";
         sqLiteDatabase.execSQL(statement2);
 
         // sqLiteDatabase.execSQL("create Table " + TABLE + "(" + COL1 + " TEXT primary key, " + COL2 + " TEXT,  " +  COLU3 + " TEXT, " +  COLU4 + " TEXT, " +  COLU5 + " TEXT)  ");
@@ -95,7 +97,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 //// METHOD FOR ITEMS STARTS HERE
 
-    public boolean insertitemdata(String name, String contact, String price, String category, String owner ){
+    public boolean insertitemdata(String name, String contact, String price, String category, String owner, String availability ){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         contentValues.put(COL11, name);
@@ -103,6 +105,9 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL33 ,price);
         contentValues.put(COL44 ,category);
         contentValues.put(COL55, owner);
+        contentValues.put(COL66, availability);
+
+
 
 
         long result=DB.insert(TABLE2, null, contentValues);
