@@ -2,10 +2,12 @@ package com.example.projectv1;
 //maha//
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -37,6 +39,19 @@ public class ViewItem extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycleview);
 
         adapter = new MyAdapter(this , item , price, phone , category);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("INSTRUCTIONS");
+        builder.setMessage("-You can access the owner's page (if you want to INSERT or DELETE items)\n"+"-Access the Seeker's page (if you want to rent or return an item)\n"+"-Back to the item's page\n"+"-Log out.\n"+"From the three points in Toolbar");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked OK button
+                //Intent intent = new Intent(ViewItem.this, ViewItem.class);
+                //startActivity(intent);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -48,7 +63,7 @@ public class ViewItem extends AppCompatActivity {
     }
 
     private void displaydata() {
-        Cursor cursor = DB.getdata();
+        Cursor cursor = DB.getALLdata();
         if (cursor.getCount()==0){
             Toast.makeText(ViewItem.this, "No Entry Exist", Toast.LENGTH_SHORT).show();
             return;
@@ -96,4 +111,4 @@ public class ViewItem extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-//bylina
+//by lina

@@ -2,9 +2,11 @@ package com.example.projectv1;
 ////
 //maha
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,17 +50,20 @@ public class LoginActivity extends AppCompatActivity {
                         UserInL = user;
                         Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                         Toast.makeText(LoginActivity.this, "Logged IN:" + UserInL, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                        Intent intent = new Intent(getApplicationContext(),ViewItem.class); // Lina modified this to redirect it to VIEWITEM page
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
+                //
+
             }
         });
+
 
     }
 }
 
-//bylina
+//by lina
 

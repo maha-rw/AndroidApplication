@@ -63,6 +63,7 @@
             android:inputType="textPersonName"
             android:textSize="24dp" />
 
+
         <Button
             android:id="@+id/btnInsert"
             android:layout_width="match_parent"
@@ -88,16 +89,28 @@
             android:id="@+id/btnView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="view item"
+            android:text="view my item"
             android:textSize="24dp"
             android:layout_marginTop="30dp"
             android:layout_below="@id/btnDelete"/>
+
+        <TextView
+            android:id="@+id/NOTE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnView"
+            android:layout_marginTop="48dp"
+            android:background="#bad2d9"
+            android:textSize="17dp"
+
+            android:text="Dear owner,\nto facilitate the process of deleting your item, you can delete the item only by entering the name of the item and then pressing DELETE ITEM"
+            tools:ignore="ExtraText" />
 
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--by lina1 -->
+    <!--by lina2 -->
 
 
 

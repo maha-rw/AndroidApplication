@@ -1,6 +1,8 @@
 package com.example.projectv1;
 //maha
 
+import static com.example.projectv1.LoginActivity.UserInL;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 } else {
 
-                    Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT, LoginActivity.UserInL );
+                    Boolean checkinsertdata = DB.insertitemdata(nameTXT, contactTXT, priceTXT, categoryTXT, UserInL );
 
 
                     if (checkinsertdata == true) {
@@ -117,7 +119,7 @@ public class HomeActivity extends AppCompatActivity {
                 String nameTXT= name.getText().toString();
 
 
-                Boolean checkdeletedata= DB.deleteitemdata(nameTXT, LoginActivity.UserInL);
+                Boolean checkdeletedata= DB.deleteitemdata(nameTXT, UserInL);
 
                 if(checkdeletedata==true){
                     Toast.makeText(HomeActivity.this, "Deleted successfully", Toast.LENGTH_LONG).show();
@@ -132,12 +134,35 @@ public class HomeActivity extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, ViewItem.class));
+                //startActivity(new Intent(HomeActivity.this, ViewItem.class));
+                Cursor res =DB.getdata(UserInL);
+                if(res.getCount()==0){
+                    Toast.makeText(HomeActivity.this, "no entery", Toast.LENGTH_LONG).show();
+                    return;
 
+                }
+                StringBuffer buffer = new StringBuffer();
 
+                while(res.moveToNext()){
+                    buffer.append("Name : " + res.getString(0)+"\n"); /////since no insert of id?? WE START FROM 1
+                    buffer.append("contact : " + res.getString(1)+"\n");
+                    buffer.append("price : " + res.getString(2)+"\n");
+                    buffer.append("category : " + res.getString(3)+"\n\n");
 
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("User Entries");
+                builder.setMessage(buffer.toString());
+                builder.show();
             }
+
+
+
+
         });
+
+
 
 
 /*
@@ -207,4 +232,4 @@ public class HomeActivity extends AppCompatActivity {
     }}
 
 
-// lina
+// linaa

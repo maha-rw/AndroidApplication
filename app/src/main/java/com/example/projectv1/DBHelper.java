@@ -31,6 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
+
+
     public DBHelper(@Nullable Context context) {
         super(context, DBNAME, null, 1);
     }
@@ -50,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String statement = "CREATE TABLE Users(username Text primary key , password TEXT, email TEXT   )";
         sqLiteDatabase.execSQL(statement);
-        String statement2 = "CREATE TABLE Items(ItemName Text primary key , Contact TEXT, Price TEXT, Category TEXT, OwnerName TEXT   )";
+        String statement2 = "CREATE TABLE Items(ItemName Text primary key , Contact TEXT, Price TEXT, Category TEXT, OwnerName TEXT )";
         sqLiteDatabase.execSQL(statement2);
 
         // sqLiteDatabase.execSQL("create Table " + TABLE + "(" + COL1 + " TEXT primary key, " + COL2 + " TEXT,  " +  COLU3 + " TEXT, " +  COLU4 + " TEXT, " +  COLU5 + " TEXT)  ");
@@ -93,7 +95,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 //// METHOD FOR ITEMS STARTS HERE
 
-    public boolean insertitemdata(String name, String contact, String price, String category, String owner){
+    public boolean insertitemdata(String name, String contact, String price, String category, String owner ){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         contentValues.put(COL11, name);
@@ -145,11 +147,19 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getdata(){
+    public Cursor getALLdata(){
         SQLiteDatabase DB = this.getWritableDatabase();
 
         Cursor cursor= DB.rawQuery("Select * From Items ", null);
         return cursor;
+    }
+
+    public Cursor getdata(String UserInL){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE2 + " WHERE username = '" + UserInL + "'"; // error in user
+        Cursor res = DB.rawQuery(query, null);
+        return res;
+
     }
 
     public boolean  checkName(String name){

@@ -12,13 +12,13 @@
     <item
         android:id="@+id/OWNERPAGE"
         android:orderInCategory="100"
-        android:title="Owner page"
+        android:title="Owner's page"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/SEEKERPAGE"
         android:orderInCategory="100"
-        android:title="Seeker page"
+        android:title="Seeker's page"
         app:showAsAction="never"/>
 
     <item
@@ -28,3 +28,5 @@
         app:showAsAction="never"/>
 
 </menu>
+
+    <!--by lina2 -->
