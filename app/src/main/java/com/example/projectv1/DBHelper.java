@@ -2,6 +2,7 @@ package com.example.projectv1;
 
 ////maha 26th of may
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -101,6 +102,7 @@ public static final String TABLE3 = "RentedItems";
     }
 //// METHOD FOR ITEMS STARTS HERE
 
+    @SuppressLint("SuspiciousIndentation")
     public boolean insertitemdata(String name, String contact, String price, String category, String owner, String availability ){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
@@ -126,7 +128,7 @@ public static final String TABLE3 = "RentedItems";
 
         Cursor cursor = DB.rawQuery("SELECT * FROM Items WHERE LOWER(ItemName) = LOWER(?) AND OwnerName = ?", new String[] {name, owner});
         if(cursor.getCount()>0) {
-            long result = DB.delete("LOWER(Items)", "LOWER(ItemName)=LOWER(?)", new String[]{name});
+            long result = DB.delete("Items", "LOWER(ItemName)=LOWER(?)", new String[]{name});
             if (result == -1) {
                 return false;
             } else {

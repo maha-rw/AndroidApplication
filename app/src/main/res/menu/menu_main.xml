@@ -24,7 +24,7 @@
     <item
         android:id="@+id/VIWEITEM"
         android:orderInCategory="100"
-        android:title="Item page"
+        android:title="Items page"
         app:showAsAction="never"/>
 
 </menu>

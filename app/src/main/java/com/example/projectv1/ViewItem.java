@@ -41,7 +41,7 @@ public class ViewItem extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("INSTRUCTIONS");
-        builder.setMessage("-You can access the owner's page (if you want to INSERT or DELETE items)\n"+"-Access the Seeker's page (if you want to rent or return an item)\n"+"-Back to the item's page\n"+"-Log out.\n"+"From the three points in Toolbar");
+        builder.setMessage("-You can access the owner's page (to INSERT/DELETE items)\n"+"-Access the Seeker's page (to rent/return an item)\n"+"-Back to the items' page\n"+"-Log out.\n"+"From the three points in Toolbar");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked OK button

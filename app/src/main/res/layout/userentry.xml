@@ -67,7 +67,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Owner Phone Number: "
+                android:text="Owner's Contact: "
                 android:textSize="20dp"
                 android:textColor="@color/teal_700"
                 style="bold"/>
