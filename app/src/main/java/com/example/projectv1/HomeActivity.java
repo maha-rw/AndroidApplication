@@ -83,9 +83,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
                     if (checkinsertdata == true) {
-                        Toast.makeText(HomeActivity.this, "added", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HomeActivity.this, "Added", Toast.LENGTH_LONG).show();
                     } else { //FAILED FROM THE ACTUAL METHOD
-                        Toast.makeText(HomeActivity.this, "fail add", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HomeActivity.this, "Adding Failed!", Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -137,7 +137,7 @@ public class HomeActivity extends AppCompatActivity {
                 //startActivity(new Intent(HomeActivity.this, ViewItem.class));
                 Cursor res =DB.getdata(UserInL);
                 if(res.getCount()==0){
-                    Toast.makeText(HomeActivity.this, "no entery", Toast.LENGTH_LONG).show();
+                    Toast.makeText(HomeActivity.this, "No Entries", Toast.LENGTH_LONG).show();
                     return;
 
                 }
