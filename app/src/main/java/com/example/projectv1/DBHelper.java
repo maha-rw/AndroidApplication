@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DBNAME = "BlueHeaven11.db";
+    public static final String DBNAME = "BlueHeaven12.db";
 
 //USERS TABLE
     public static final String TABLE = "Users";
@@ -60,7 +60,7 @@ public static final String TABLE3 = "RentedItems";
         sqLiteDatabase.execSQL(statement);
         String statement2 = "CREATE TABLE Items(ItemName Text primary key , Contact TEXT, Price TEXT, Category TEXT, OwnerName TEXT, Availability TEXT )";
         sqLiteDatabase.execSQL(statement2);
-        String statement3 = "CREATE TABLE RentedItems(ItemName Text , UserName Text, PRIMARY KEY (ItemName, UserName))" ;
+        String statement3 = "CREATE TABLE RentedItems(ItemName Text , UserName Text, PRIMARY KEY (ItemName, UserName), FOREIGN KEY (ItemName) REFERENCES Items(ItemName), FOREIGN KEY (UserName) REFERENCES UserName(username))" ;
         sqLiteDatabase.execSQL(statement3);
 
     }
