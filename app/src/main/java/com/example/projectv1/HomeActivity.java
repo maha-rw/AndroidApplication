@@ -94,25 +94,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-       /* update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String nameTXT = name.getText().toString();
-                String contactTXT = contact.getText().toString();
-                String priceTXT = price.getText().toString();
-                String categoryTXT = category.getText().toString();
 
-                Boolean checkupdatedata = DB.updateitemdata(nameTXT, contactTXT, priceTXT, categoryTXT);
-
-                if (checkupdatedata == true) {
-                    Toast.makeText(HomeActivity.this, "updated", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(HomeActivity.this, "fail update", Toast.LENGTH_LONG).show();
-
-                }
-
-            }
-        });*/
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

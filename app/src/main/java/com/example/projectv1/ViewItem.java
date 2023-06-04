@@ -94,6 +94,7 @@ public class ViewItem extends AppCompatActivity {
         if (id == R.id.LOGOUT) {
             Intent intent = new Intent(ViewItem.this, MainActivity.class);
             startActivity(intent);
+            Toast.makeText(ViewItem.this, " you Logged out " + LoginActivity.UserInL, Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.OWNERPAGE) {
             Intent intent = new Intent(ViewItem.this, HomeActivity.class);
